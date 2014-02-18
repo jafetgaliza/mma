@@ -24,19 +24,39 @@
   </dependencies>
   
   <build>
-  	<finalName>${pom.version}-mma</finalName>
+  
+  </build>
+  <reporting>
+  <finalName>${pom.version}-mma</finalName>
   	<plugins>
   		<plugin>
   			<groupId>org.codehaus.mojo</groupId> 
         	<artifactId>taglist-maven-plugin</artifactId> 
         	<version> 2.4 </version> 
         	<configuration>
-					<finalName>${pom.version}-mma</finalName>
-					<descriptor>src/main/java/dce/dsc/mma/app.java</descriptor>
-				</configuration>
+			<finalName>${pom.version}-mma</finalName>
+			<descriptor>src/main/java/dce/dsc/mma/app.java</descriptor>
+			<tagListOptions>
+            		<tagClasses>
+        		 <tagClass>
+                		<displayName>Todo Work</displayName>
+                			<tags>
+                  			<tag>
+                    			<matchString>todo</matchString>
+                    			<matchType>ignoreCase</matchType>
+                  			</tag>
+                  			<tag>
+                    			<matchString>FIXME</matchString>
+                    			<matchType>exact</matchType>
+                  			</tag>
+                			</tags>
+              				</tagClass>
+            		</tagClasses>
+          		</tagListOptions>
+		</configuration>
 				<executions>
 					<execution>
-						<phase>package</phase>
+						<phase>site</phase>
 						<goals>
 							<goal>taglist</goal>
 						</goals>
@@ -44,5 +64,5 @@
 				</executions>
   		</plugin>
   	</plugins>
-  </build>
+  </reporting>
 </project>
