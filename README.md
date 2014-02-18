@@ -1,4 +1,4 @@
 mma
 ===
 
-mvn package
+mvn site
